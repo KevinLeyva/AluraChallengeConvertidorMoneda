@@ -10,6 +10,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JComboBox;
 import java.awt.Font;
 import javax.swing.JTextField;
@@ -148,7 +149,17 @@ public class ConversorTemperatura extends JFrame {
 		btnSalir.setFont(new Font("Times New Roman", Font.PLAIN, 11));
 		btnSalir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				dispose();
+				JOptionPane option = new JOptionPane("Deseas salir de programa?", JOptionPane.QUESTION_MESSAGE,
+						JOptionPane.YES_NO_OPTION);
+				
+				int n = JOptionPane.showConfirmDialog(
+					    option,
+					    "Deseas salir de programa?",
+					    "An Inane Question",
+					    JOptionPane.YES_NO_OPTION);
+				if (n == 0) {
+					dispose();
+				}
 			}
 		});
 		btnSalir.setBounds(369, 240, 89, 23);

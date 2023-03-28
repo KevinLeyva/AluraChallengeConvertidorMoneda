@@ -7,10 +7,12 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.BorderLayout;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
+import java.awt.JobAttributes;
 import java.awt.Color;
 import javax.swing.UIManager;
 
@@ -93,7 +95,19 @@ public class Index extends JFrame {
 		btnNewButton_2.setBackground(new Color(192, 192, 192));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				dispose();
+				
+				JOptionPane option = new JOptionPane("Deseas salir de programa?", JOptionPane.QUESTION_MESSAGE,
+						JOptionPane.YES_NO_OPTION);
+				
+				int n = JOptionPane.showConfirmDialog(
+					    option,
+					    "Deseas salir de programa?",
+					    "An Inane Question",
+					    JOptionPane.YES_NO_OPTION);
+				if (n == 0) {
+					dispose();
+				}
+				
 			}
 		});
 		btnNewButton_2.setFont(new Font("Times New Roman", Font.PLAIN, 17));

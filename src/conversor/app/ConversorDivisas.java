@@ -9,6 +9,8 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.JTextField;
@@ -151,7 +153,17 @@ public class ConversorDivisas extends JFrame {
 		btnNewButton.setFont(new Font("Times New Roman", Font.PLAIN, 11));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				dispose();
+				JOptionPane option = new JOptionPane("Deseas salir de programa?", JOptionPane.QUESTION_MESSAGE,
+						JOptionPane.YES_NO_OPTION);
+				
+				int n = JOptionPane.showConfirmDialog(
+					    option,
+					    "Deseas salir de programa?",
+					    "An Inane Question",
+					    JOptionPane.YES_NO_OPTION);
+				if (n == 0) {
+					dispose();
+				}
 			}
 		});
 		btnNewButton.setBounds(308, 277, 89, 23);
